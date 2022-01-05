@@ -40,7 +40,7 @@ class AdresseDB
      * @param Adresse $a
      */
 	public function suppression(Adresse $a):void{
-		$q = $this->db->prepare('DELETE FROM adresse WHERE numero=:n,rue=:r,codepostal=:c,ville=:v,id_pers=:p');
+		$q = $this->db->prepare('DELETE FROM adresse WHERE numero=:n, rue=:r, codepostal=:c, ville=:v, id_pers=:p');
 	
 		$q->bindValue(':n',$a->getNumero(),PDO::PARAM_STR);
 		$q->bindValue(':r',$a->getRue(),PDO::PARAM_STR);

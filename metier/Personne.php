@@ -24,10 +24,9 @@ class Personne{
     /** Email **/
     private string $pwd;
 	/** Adresse **/
-	private string $adresse;
 
 
-	public function __construct(string $n,string $p,DateTime $d,string $t,string $e,string $l,string $pw,string $adr){
+	public function __construct(string $n,string $p,DateTime $d,string $t,string $e,string $l,string $pw){
 
 		$this->nom=$n;
 		$this->prenom=$p;
@@ -36,9 +35,6 @@ class Personne{
 		$this->email=$e;
         $this->login=$l;
         $this->pwd=$pw;
-		$this->adresse=$adr;
-
-		
 	}
 
 	/**

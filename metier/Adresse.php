@@ -12,14 +12,12 @@ class Adresse {
 	private ?string $rue;
 	private ?int $codePostal;
 	private ?string $ville;
-    private ?int $idPers;
 	
-	public function __construct(int $numero, string $rue, int $codePostal, string $ville, int $idPers) {
+	public function __construct(int $numero, string $rue, int $codePostal, string $ville) {
             $this->numero = $numero;
             $this->rue = $rue;
             $this->codePostal = $codePostal;
             $this->ville = $ville;
-            $this->idPers = $idPers;
         }
 
         public function getId() {
@@ -42,10 +40,6 @@ class Adresse {
             return $this->ville;
         }
 
-        public function getIdPers() {
-            return $this->idPers;
-        }
-
         public function setId($id) {
             $this->id = $id;
         }
@@ -66,10 +60,6 @@ class Adresse {
             $this->ville = $ville;
         }
 
-        public function setIdPers($idPers) {
-            $this->idPers = $idPers;
-        }
-
 	/**
 	 *
 	 * renvoie sous forme de chaine de caracteres l'objet adresse en appelant echo ou print
@@ -80,8 +70,7 @@ class Adresse {
 		.$this->getNumero().','
 		.$this->getRue().','
 		.$this->getCodePostal().','
-        .$this->getVille().','
-        .$this->getIdPers().']';
+        .$this->getVille().']';
 
 }
 }

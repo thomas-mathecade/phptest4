@@ -22,6 +22,7 @@
 	 //exception PDO
 	 const EXCEPTION_DB_PERSONNE="RECORD PERSONNE not present in DATABASE";
 	 const EXCEPTION_DB_ADRESSE="RECORD ADRESSE not present in DATABASE";
+	 const EXCEPTION_DB_CONVERT_ADRESSE="error conversion PDO->adresse";
 	 
 	 //exception PDO update
 	 const EXCEPTION_DB_PERS_UP="RECORD PERSONNE not update in DATABASE";

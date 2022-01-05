@@ -39,7 +39,7 @@ class AdresseDBTest extends TestCase {
         try{ 
             $this->adresse = new AdresseDB($this->pdodb);
             
-            $a = new Adresse(32, "rue sainte croix", 4400, "Nantes", 1);
+            $a = new Adresse(32, "rue sainte croix", 4400, "Nantes");
 
             $this->adresse->ajout($a);
             $lastId = $this->pdodb->lastInsertId();
@@ -51,7 +51,6 @@ class AdresseDBTest extends TestCase {
             $this->assertEquals($a->getRue(),$adre->getRue());
             $this->assertEquals($a->getCodePostal(),$adre->getCodePostal());
             $this->assertEquals($a->getVille(),$adre->getVille());
-            $this->assertEquals($a->getIdPers(),$adre->getIdPers());
         } catch  (Exception $e) {
             echo 'Exception recue : ',  $e->getMessage(), "\n";
         }
@@ -89,10 +88,7 @@ class AdresseDBTest extends TestCase {
     public function testSelectionId() {
             $this->adresse = new AdresseDB($this->pdodb);
             $a=$this->adresse->selectionId();
-            
-            $lastId = $this->pdodb->lastInsertId();
 
-            $a->setId($lastId);
             $adre=$this->adresse->selectionId($a->getId());
 
             $adre=$this->adresse->selectionId($a->getId());
@@ -100,8 +96,7 @@ class AdresseDBTest extends TestCase {
             $this->assertEquals($a->getNumero(),$adre->getNumero());
             $this->assertEquals($a->getRue(),$adre->getRue());
             $this->assertEquals($a->getCodePostal(),$adre->getCodePostal());
-            $this->assertEquals($a->getVille(),$adre->getVille());  
-            $this->assertEquals($a->getIdPers(),$adre->getIdPers());  
+            $this->assertEquals($a->getVille(),$adre->getVille());
     }
 
         /**
@@ -136,14 +131,12 @@ public function testConvertPdoAdre() {
     $tab["rue"]="rue des lilas";
     $tab["codeposatal"]="21300";
     $tab["ville"]="Brur";
-    $tab["id_pers"]="1";
     $this->adresse = new AdresseDB($this->pdodb);
     $adre= $this->adresse->convertPdoAdre($tab);
     $this->assertEquals($tab["numero"],$adre->getNumero());
     $this->assertEquals($tab["rue"],$adre->getRue());
     $this->assertEquals($tab["codeposatal"],$adre->getCodePostal());
     $this->assertEquals($tab["ville"],$adre->getVille());
-    $this->assertEquals($tab["id_pers"],$adre->getIdPers());
 }
 
 /**
@@ -153,11 +146,11 @@ public function testConvertPdoAdre() {
 */
     public function testUpdate() {
         $this->adresse = new AdresseDB($this->pdodb);
-        $a = new Adresse(32, "rue sainte croix", 4400, "Nantes", 1);
+        $a = new Adresse(32, "rue sainte croix", 4400, "Nantes");
         $a->setId(99);
         $this->adresse->ajout($a);
 
-        $a=new Adresse(21, "rue des pepes", 2154, "Che", 1);
+        $a=new Adresse(21, "rue des pepes", 2154, "Che");
         $lastId = $this->pdodb->lastInsertId();
         $a->setId($lastId);
         $this->adresse->update($a);  
@@ -167,7 +160,6 @@ public function testConvertPdoAdre() {
         $this->assertEquals($a->getRue(),$adre->getRue());
         $this->assertEquals($a->getCodePostal(),$adre->getCodePostal());
         $this->assertEquals($a->getVille(),$adre->getVille());
-        $this->assertEquals($a->getIdPers(),$adre->getIdPers());
     }
 }
 ?>
