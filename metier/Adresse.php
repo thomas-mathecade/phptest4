@@ -9,17 +9,22 @@ class Adresse {
 	
 	private int $id;
 	private string $numero;
-	private ?string $rue;
-	private ?int $codePostal;
-	private ?string $ville;
+	private string $rue;
+	private string $codepostal;
+	private string $ville;
+	private ?int $idPers;
 	
-	public function __construct(int $numero, string $rue, int $codePostal, string $ville) {
+	public function __construct(string $numero, string $rue, string $codepostal, string $ville, int $idPers) {
             $this->numero = $numero;
             $this->rue = $rue;
-            $this->codePostal = $codePostal;
+            $this->codepostal = $codepostal;
             $this->ville = $ville;
+            $this->idPers = $idPers;
         }
 
+        /** 
+         * GET
+         * **/
         public function getId() {
             return $this->id;
         }
@@ -33,31 +38,54 @@ class Adresse {
         }
 
         public function getCodePostal() {
-            return $this->codePostal;
+            return $this->codepostal;
         }
 
         public function getVille() {
             return $this->ville;
         }
 
-        public function setId($id) {
-            $this->id = $id;
+        public function getIdPers() {
+            return $this->idPers;
         }
 
-        public function setNumero($numero) {
-            $this->numero = $numero;
+        /** 
+         * SET
+         * **/
+        public function setId(int $id) {
+            if($id!=null){
+                $this->id=$id;
+            }
         }
 
-        public function setRue($rue) {
-            $this->rue = $rue;
+        public function setNumero(string $numero) {
+            if($numero!=null && is_string($numero)){
+                $this->numero=$numero;
+            }
         }
 
-        public function setCodePostal($codePostal) {
-            $this->codePostal = $codePostal;
+        public function setRue(string $rue) {
+            if($rue!=null && is_string($rue)){
+                $this->rue=$rue;
+            }
         }
 
-        public function setVille($ville) {
-            $this->ville = $ville;
+        public function setCodePostal(string $codepostal) {
+            if($codepostal!=null && is_string($codepostal)){
+                $this->codepostal=$codepostal;
+            }
+        }
+
+        public function setVille(string $ville) {
+            if($ville!=null && is_string($ville)){
+                $this->ville=$ville;
+            }
+        }
+
+        public function setIdPers(int $idPers) {
+            if($idPers!=null){
+                $this->idPers=$idPers;
+            }
         }
 
 	/**
@@ -70,7 +98,7 @@ class Adresse {
 		.$this->getNumero().','
 		.$this->getRue().','
 		.$this->getCodePostal().','
-        .$this->getVille().']';
-
-}
+        .$this->getVille().','
+        .$this->getIdPers().']';
+    }
 }

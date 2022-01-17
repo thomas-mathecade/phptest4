@@ -1,6 +1,6 @@
 <?php
 
-include_once"vue/vueAuthentification.php";
+include_once "vue/vueAuthentification.php";
 
 class Controller {
 

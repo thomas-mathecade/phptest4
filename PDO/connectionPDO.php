@@ -12,5 +12,5 @@ try {
 }
 catch(PDOException $e) {
     $msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
-    die($msg);
+    die($msg);   
 }

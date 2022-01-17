@@ -79,15 +79,13 @@ class PersonneDB {
 /**
 	 * 
 	 * Fonction de selection en fonction de l'id
+	 * @throws Exception
 	 * @param $nom
 	 */
 	public function selectionId($id){
-		$query = 'SELECT id,nom,prenom,datenaissance,telephone,email,login,pwd FROM personne  WHERE id= :id ';
+		$query = 'SELECT id,nom,prenom,datenaissance,telephone,email,login,pwd FROM personne WHERE id= :id ';
 		$q = $this->db->prepare($query);
-
-	
 		$q->bindValue(':id',$id);
-	
 		$q->execute();
 		
 		$arrAll = $q->fetch(PDO::FETCH_ASSOC);
@@ -105,6 +103,7 @@ class PersonneDB {
 		//retour du resultat
 		return $res;
 	}
+	
 	/**
 	 * 
 	 * Fonction qui retourne toutes les personnes
@@ -153,7 +152,7 @@ class PersonneDB {
 	/**
 	 * 
 	 * Fonction de modification d'une personne
-	 * @param Personne $r
+	 * @param Personne $p
 	 * @throws Exception
 	 */
 public function update(Personne $p)

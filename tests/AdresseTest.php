@@ -18,7 +18,8 @@ class AdresseTest extends TestCase {
      *  @coversNothing
      */
     protected function setUp() :void {
-        $this->adresse = new Adresse(3,4,"rue de saint honoré",44000,"Nantes");
+        $this->adresse = new Adresse(4,"rue de saint honoré",44000,"Nantes", 4);
+        $this->adresse->setId(1);
     }
         /**
      *  @coversNothing
@@ -30,13 +31,13 @@ class AdresseTest extends TestCase {
      * @covers Adresse::getId
      */
     public function testGetId() {
-           $this->assertEquals("3",$this->adresse->getId());
+           $this->assertEquals(1, $this->adresse->getId());
     }
  /**
      * @covers Adresse::getNumero
      */
     public function testGetNumero() {
-      $this->assertEquals("4",$this->adresse->getNumero());
+      $this->assertEquals(4,$this->adresse->getNumero());
     }
      /**
      * @covers Adresse::getRue
@@ -49,7 +50,7 @@ class AdresseTest extends TestCase {
      * @covers Adresse::getCodepostal
      */
     public function testGetCodePostal() {
-       $this->assertEquals("44000",$this->adresse->getCodePostal());
+       $this->assertEquals(44000,$this->adresse->getCodePostal());
     }
 
     /**
@@ -59,21 +60,28 @@ class AdresseTest extends TestCase {
       $this->assertEquals("Nantes",$this->adresse->getVille());
     }
 
+     /**
+     * @covers Adresse::getIdPers
+     */
+    public function testGetIdPers() {
+        $this->assertEquals(4,$this->adresse->getIdPers());
+      }
+
     /**
      * @covers Adresse::setId
      */
     public function testSetId() {
         // Remove the following lines when you implement this test.
-        $this->adresse->setId("99");
-          $this->assertEquals("99",$this->adresse->getId());
+        $this->adresse->setId(99);
+          $this->assertEquals(99,$this->adresse->getId());
     }
 
     /**
      * @covers Adresse::setNumero
      */
     public function testSetNumero() {
-       $this->adresse->setNumero("39");
-        $this->assertEquals("39",$this->adresse->getNumero());
+       $this->adresse->setNumero(39);
+        $this->assertEquals(39,$this->adresse->getNumero());
     }
 
     /**
@@ -99,12 +107,21 @@ class AdresseTest extends TestCase {
         $this->adresse->setVille("Paris");
        $this->assertEquals("Paris",$this->adresse->getVille());
     }
-       /**
-     * @covers Adresse::__toString
-     */
+
+    /**
+    * @covers Adresse::setIdPers
+    */
+    public function testSetIdPers() {
+        $this->adresse->setIdPers(6);
+        $this->assertEquals(6,$this->adresse->getIdPers());
+    }
+
+    /**
+    * @covers Adresse::__toString
+    */
     public function test__toString()
     {
-        $this->assertEquals("[".$this->adresse->getId().",".$this->adresse->getNumero().",".$this->adresse->getRue().",".$this->adresse->getCodePostal().",".$this->adresse->getVille()."]", $this->adresse->__toString());
+        $this->assertEquals("[".$this->adresse->getId().",".$this->adresse->getNumero().",".$this->adresse->getRue().",".$this->adresse->getCodePostal().",".$this->adresse->getVille().",".$this->adresse->getIdPers()."]", $this->adresse->__toString());
         echo $this->adresse;
     }
 

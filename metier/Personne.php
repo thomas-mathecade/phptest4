@@ -24,17 +24,17 @@ class Personne{
     /** Email **/
     private string $pwd;
 	/** Adresse **/
+    private string $adresse;
 
+	public function __construct(string $nom,string $prenom,DateTime $datenaiss,string $telephone,string $email,string $login,string $pwd){
 
-	public function __construct(string $n,string $p,DateTime $d,string $t,string $e,string $l,string $pw){
-
-		$this->nom=$n;
-		$this->prenom=$p;
-        $this->datenaiss=$d;
-        $this->telephone=$t;
-		$this->email=$e;
-        $this->login=$l;
-        $this->pwd=$pw;
+		$this->nom=$nom;
+		$this->prenom=$prenom;
+        $this->datenaiss=$datenaiss;
+        $this->telephone=$telephone;
+		$this->email=$email;
+        $this->login=$login;
+        $this->pwd=$pwd;
 	}
 
 	/**
@@ -68,7 +68,6 @@ class Personne{
 	public function getAdresse(){
 		return $this->adresse;
 	}
-
 	
 	/**
 	 * Methodes setter pour avoir affecter des valeurs  aux attributs de l'objet
@@ -79,47 +78,48 @@ class Personne{
 			$this->id=$id;
 		}
 	}
-	public function setNom(string $n){
-		if($n!=null && is_string($n)){
-			$this->nom=$n;
+	public function setNom(string $nom){
+		if($nom!=null && is_string($nom)){
+			$this->nom=$nom;
 		}
 	}
-	public function setPrenom(string$pre){
-		if($pre!=null && is_string($pre)){
-			$this->prenom=$pre;
+	public function setPrenom(string $prenom){
+		if($prenom!=null && is_string($prenom)){
+			$this->prenom=$prenom;
 		}
     }
-    public function setDateNaissance(DateTime $dateNais){
-            if($dateNais!=null){
-            $this->datenaiss=$dateNais;
+    public function setDateNaissance(DateTime $datenaiss){
+            if($datenaiss!=null){
+            $this->datenaiss=$datenaiss;
             }
         }
-        public function setTelephone(string $tel){
-            if($tel!=null && is_string($tel)){
-                $this->telephone=$tel;
+        public function setTelephone(string $telephone){
+            if($telephone!=null && is_string($telephone)){
+                $this->telephone=$telephone;
             }
         }
-        public function setEmail(string $mail){
-            if($mail!=null && is_string($mail)){
-                $this->email=$mail;
+        public function setEmail(string $email){
+            if($email!=null && is_string($email)){
+                $this->email=$email;
             }
         }
-        public function setLogin(string $logi){
-            if($logi!=null && is_string($logi)){
-                $this->login=$logi;
+        public function setLogin(string $login){
+            if($login!=null && is_string($login)){
+                $this->login=$login;
             }
         }
             
-        public function setPwd(string $pw){
-            if($pw!=null && is_string($pw)){
-                $this->pwd = md5($pw);
+        public function setPwd(string $pwd){
+            if($pwd!=null && is_string($pwd)){
+                $this->pwd = md5($pwd);
             }
         }
-		public function setAdresse(string $adr){
-			if($adr!=null && is_string($adr)){
-				$this->adresse=$adr;
-			}
-		}
+
+		public function setAdresse(string $adresse){
+            if($adresse!=null && is_string($adresse)){
+                $this->adresse=$adresse;
+            }
+        }
 	
 	/**
 	 *
@@ -133,7 +133,6 @@ class Personne{
 		.$this->getTelephone().','
 		.$this->getEmail().','
         .$this->getLogin().','
-		.$this->getPwd().','
-		.$this->getAdresse().']';
+		.$this->getPwd().']';
 }
 }
