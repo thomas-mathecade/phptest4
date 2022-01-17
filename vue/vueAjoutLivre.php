@@ -15,11 +15,11 @@ class vueAjoutLivre extends Vue {
                                                 </div>
                                                 <div class='form-row'>
                                                         <label for='auteur'>Auteur</label>
-                                                        <input id="auteur" type="text" class="form-control" name="auteur" placeholder="Entrer l \'auteur" required>
+                                                        <input id="auteur" type="text" class="form-control" name="auteur" placeholder="Entrer l'auteur" required>
                                                 </div>
                                                 <div class='form-row'>
                                                         <label for='edition'>Edition</label>
-                                                        <input id="edition" type="text" class="form-control" name="edition" placeholder="Entrer l \'édition" required>
+                                                        <input id="edition" type="text" class="form-control" name="edition" placeholder="Entrer l'édition" required>
                                                 </div>
                                                 <div class='form-row'>
                                                         <label for='info'>Information</label>
